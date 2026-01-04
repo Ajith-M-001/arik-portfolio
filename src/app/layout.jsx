@@ -1,6 +1,7 @@
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/constants";
-import { chillax, satoshi } from "./fonts";
+import { chillax, satoshi } from "../config/fonts";
 import "./globals.css";
+import Header from "@/components/layout/header/Header";
 
 export const metadata = {
   title: SITE_TITLE,
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${chillax.variable} ${satoshi.variable}`}>
         {/* Header */}
+        <Header />
         <main>{children}</main>
         {/* Footer */}
       </body>
