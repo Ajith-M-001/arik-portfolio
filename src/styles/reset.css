@@ -1,0 +1,198 @@
+/* styles\reset.css */
+
+/*
+  Modern CSS Reset (2026 best practices)
+*/
+
+/* 1. Intuitive box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margins, but exclude <dialog> to preserve native centering */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* Prevent font size inflation on mobile */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Enable keyword animations (Chrome/Edge, respects accessibility) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* 3. Core body defaults */
+body {
+  min-block-size: 100dvh; /* Full visible height, mobile-safe */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   6. Shorter Line Heights for UI Elements
+   ========================= */
+:where(h1, h2, h3, h4, h5, h6, button, input, label) {
+  line-height: 1.1;
+}
+
+/* =========================
+   7. Better Text Wrapping
+   ========================= */
+/* Balance text on headings for better visual hierarchy */
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+  /* Prevent long words from overflowing */
+  overflow-wrap: break-word;
+}
+
+/* Pretty text wrapping for paragraphs (prevents orphans) */
+:where(p) {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   8. Remove List Styles (Only When Intentional)
+   Preserves accessibility by only targeting lists with role="list"
+   This prevents VoiceOver from losing list semantics
+   ========================= */
+:where(ul[role="list"], ol[role="list"]) {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+/* =========================
+   9. Media Defaults
+   Make images and media easier to work with
+   ========================= */
+:where(img, picture, video, canvas, svg) {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* =========================
+   10. Form Controls Inherit Typography
+   ========================= */
+:where(input, button, textarea, select) {
+  font: inherit;
+  color: inherit;
+}
+
+/* =========================
+   11. Textarea Minimum Height
+   Prevent tiny textareas
+   ========================= */
+:where(textarea:not([rows])) {
+  min-block-size: 10em;
+}
+
+/* =========================
+   12. Better Focus Styles
+   Remove default outline but only when using mouse/touch
+   Keep keyboard focus visible for accessibility
+   ========================= */
+:where(:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* =========================
+   13. Remove Animations for People Who Prefer Not to See Them
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================
+   14. Anchor Scroll Margin
+   Add space above anchored elements (useful with fixed headers)
+   ========================= */
+:where(:target) {
+  scroll-margin-block-start: 2rem;
+}
+
+/* =========================
+   15. Better Underlines for Links
+   ========================= */
+:where(a:not([class])) {
+  text-decoration-skip-ink: auto;
+}
+
+/* =========================
+   16. Create Root Stacking Context
+   Useful for frameworks like React/Vue
+   Prevents z-index issues with portals/modals
+   ========================= */
+:where(#root, #__next, #app) {
+  isolation: isolate;
+}
+
+/* =========================
+   17. Consistent Table Spacing
+   ========================= */
+:where(table) {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* =========================
+   18. Better Button Defaults
+   ========================= */
+:where(button) {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+}
+
+:where(button:disabled) {
+  cursor: not-allowed;
+}
+
+/* =========================
+   19. Dialog Element Reset
+   ========================= */
+:where(dialog) {
+  border: none;
+  padding: 0;
+}
+
+:where(dialog::backdrop) {
+  background: rgb(0 0 0 / 0.5);
+}
+
+/* =========================
+   20. Fieldset Reset
+   ========================= */
+:where(fieldset) {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+/* =========================
+   21. Legend Reset
+   ========================= */
+:where(legend) {
+  padding: 0;
+}

@@ -1,0 +1,188 @@
+:root {
+  /* ========================= TYPOGRAPHY ========================= */
+  --font-heading: "Satoshi", system-ui, sans-serif;
+  --font-body: "Chillax", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Courier New", monospace;
+
+  /* Fluid Typography - Mobile First */
+  --font-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); /* 12-14px */
+  --font-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem); /* 14-16px */
+  --font-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16-18px */
+  --font-md: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem); /* 18-20px */
+  --font-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem); /* 20-24px */
+  --font-xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem); /* 24-32px */
+  --font-2xl: clamp(2rem, 1.75rem + 1.25vw, 3rem); /* 32-48px */
+  --font-3xl: clamp(2.5rem, 2rem + 2.5vw, 4rem); /* 40-64px */
+  --font-4xl: clamp(3rem, 2.5rem + 2.5vw, 5rem); /* 48-80px */
+  --font-hero: clamp(3.5rem, 2rem + 7.5vw, 8rem); /* 56-128px */
+
+  /* ========================= COLORS (OKLCH) ========================= */
+  /* Light Mode */
+  --color-text-primary: oklch(83.32% 0.047 76.76);
+  --color-text-secondary: oklch(83.32% 0.047 76.76 / 0.6);
+  --color-text-tertiary: oklch(83.32% 0.047 76.76 / 0.4);
+  --color-text-inverted: oklch(16.38% 0 0);
+
+  /* Backgrounds */
+  --color-bg-primary: oklch(0% 0 0);
+  --color-bg-secondary: oklch(5% 0 0);
+  --color-bg-surface: oklch(83.32% 0.047 76.76 / 0.05);
+  --color-bg-elevated: oklch(10% 0 0);
+
+  /* Accent Colors */
+  --color-accent: oklch(83.32% 0.047 76.76);
+  --color-accent-hover: oklch(78% 0.05 76.76);
+  --color-accent-muted: oklch(83.32% 0.02 76.76 / 0.5);
+  --color-accent-focus: oklch(85% 0.05 76.76);
+
+  /* Semantic Colors */
+  --color-success: oklch(70% 0.18 150);
+  --color-success-bg: oklch(70% 0.18 150 / 0.1);
+  --color-warning: oklch(75% 0.14 80);
+  --color-warning-bg: oklch(75% 0.14 80 / 0.1);
+  --color-error: oklch(65% 0.2 25);
+  --color-error-bg: oklch(65% 0.2 25 / 0.1);
+  --color-info: oklch(70% 0.1 220);
+  --color-info-bg: oklch(70% 0.1 220 / 0.1);
+
+  /* Borders */
+  --color-border: oklch(83.32% 0.047 76.76 / 0.15);
+  --color-border-hover: oklch(78% 0.05 76.76 / 0.3);
+  --color-border-focus: oklch(83.32% 0.047 76.76 / 0.5);
+
+  /* Focus States */
+  --color-focus-outline: oklch(83.32% 0.047 76.76 / 0.6);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* ========================= SPACING ========================= */
+  --space-3xs: clamp(0.25rem, 0.23rem + 0.125vw, 0.375rem); /* 4-6px */
+  --space-2xs: clamp(0.375rem, 0.35rem + 0.125vw, 0.5rem); /* 6-8px */
+  --space-xs: clamp(0.5rem, 0.475rem + 0.125vw, 0.625rem); /* 8-10px */
+  --space-sm: clamp(0.625rem, 0.575rem + 0.25vw, 0.875rem); /* 10-14px */
+  --space-md: clamp(1rem, 0.95rem + 0.25vw, 1.25rem); /* 16-20px */
+  --space-lg: clamp(1.5rem, 1.4rem + 0.5vw, 2rem); /* 24-32px */
+  --space-xl: clamp(2rem, 1.85rem + 0.75vw, 2.75rem); /* 32-44px */
+  --space-2xl: clamp(2.5rem, 2.25rem + 1.25vw, 3.75rem); /* 40-60px */
+  --space-3xl: clamp(3rem, 2.5rem + 2.5vw, 5rem); /* 48-80px */
+  --space-4xl: clamp(4rem, 3rem + 5vw, 8rem); /* 64-128px */
+
+  /* ========================= FONT WEIGHTS ========================= */
+  --fw-thin: 100;
+  --fw-extralight: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  /* ========================= LINE HEIGHTS ========================= */
+  --lh-none: 1;
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-base: 1.5;
+  --lh-relaxed: 1.625;
+  --lh-loose: 1.75;
+
+  /* ========================= LETTER SPACING ========================= */
+  --ls-tighter: -0.05em;
+  --ls-tight: -0.025em;
+  --ls-normal: 0;
+  --ls-wide: 0.025em;
+  --ls-wider: 0.05em;
+  --ls-widest: 0.1em;
+
+  /* ========================= BORDER RADIUS ========================= */
+  --radius-none: 0;
+  --radius-xs: 0.125rem; /* 2px */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+
+  /* ========================= SHADOWS ========================= */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+  /* ========================= Z-INDEX ========================= */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+
+  /* ========================= TRANSITIONS ========================= */
+  --duration-instant: 50ms;
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ========================= BREAKPOINTS ========================= */
+  --bp-xs: 475px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* ========================= LAYOUT ========================= */
+  --container-max: 90rem; /* 1440px */
+  --container-padding: var(--space-md);
+  --header-height: 4rem;
+  --footer-height: auto;
+  --sidebar-width: 16rem;
+
+  /* ========================= GRID ========================= */
+  --grid-columns: 12;
+  --grid-gap: var(--space-md);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Adjust colors for true dark mode if needed */
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High Contrast */
+@media (prefers-contrast: high) {
+  :root {
+    --color-text-primary: oklch(95% 0 0);
+    --color-border: oklch(90% 0 0);
+    --focus-ring-width: 3px;
+  }
+}

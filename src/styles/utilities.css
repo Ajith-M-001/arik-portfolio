@@ -1,0 +1,7 @@
+.u-container {
+  container-type: inline-size;
+  container-name: main;
+  inline-size: 90%;
+  margin-inline: auto;
+  max-inline-size: var(--max-content-width);
+}

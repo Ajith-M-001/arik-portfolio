@@ -1,0 +1,280 @@
+:root {
+  /* ========================= TYPOGRAPHY ========================= */
+  --font-heading: "Satoshi", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif; /* Heading font */
+  --font-body: "Chillax", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif; /* Body font */
+  --font-mono: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace; /* Monospace font */
+
+  /* Fluid Font Sizes – Recommended approach (no nested calc()) */
+  /* clamp(min, preferred, max) where preferred = intercept + vw */
+  --font-xs: clamp(0.75rem, 0.0469rem + 0.2344vw, 0.75rem); /* 12px */
+  --font-sm: clamp(0.75rem, 0.0508rem + 0.2539vw, 0.8125rem); /* 13px */
+  --font-base: clamp(
+    1rem,
+    0.0625rem + 0.3125vw,
+    1rem
+  ); /* 16px → min 16px (body text standard) */
+  --font-md: clamp(1rem, 0.0703rem + 0.3516vw, 1.125rem); /* 18px */
+  --font-lg: clamp(1rem, 0.0781rem + 0.3906vw, 1.25rem); /* 20px */
+  --font-xl: clamp(1rem, 0.0938rem + 0.4688vw, 1.5rem); /* 24px */
+  --font-2xl: clamp(1.5rem, 0.1875rem + 0.9375vw, 3rem); /* 48px */
+  --font-3xl: clamp(2rem, 0.25rem + 1.25vw, 4rem); /* 64px */
+  --font-4xl: clamp(
+    2.5rem,
+    0.5rem + 2.5vw,
+    6rem
+  ); /* 96px (adjusted for better mobile) */
+  --font-5xl: clamp(3rem, 0.75rem + 3.75vw, 8rem); /* 128px */
+  --font-hero: clamp(
+    2.5rem,
+    1rem + 7.5vw,
+    10rem
+  ); /* 160px → 40px exact match */
+
+  /* ========================= COLORS (OKLCH)========================= */
+  /* text color */
+  --color-text-primary: oklch(83.32% 0.047 76.76);
+  --color-text-secondary: oklch(83.32% 0.047 76.76 / 0.6);
+  --color-text-inverted: oklch(16.38% 0 0);
+
+  /* Backgrounds */
+  --color-bg-primary: oklch(0% 0 0);
+  --color-bg-surface: oklch(83.32% 0.047 76.76 / 0.05);
+
+  /* Accent colors */
+  --color-accent: oklch(83.32% 0.047 76.76);
+  --color-accent-hover: oklch(78% 0.05 76.76);
+  --color-accent-muted: oklch(83.32% 0.02 76.76 / 0.5);
+
+  /* Borders */
+  --color-border: oklch(83.32% 0.047 76.76 / 0.15);
+  --color-border-hover: oklch(78% 0.05 76.76 / 0.3);
+
+  /* Focus outline */
+  --color-outline: oklch(83.32% 0.047 76.76 / 0.6);
+
+  /* ========================= FONT WEIGHT ========================= */
+  --fw-light: 300;
+  --fw-regular: 400;
+
+  /* --fw-medium: ;
+  --fw-semibold: ;
+  --fw-bold: ;
+  --fw-extrabold: ; */
+
+  /* ========================= LINE HEIGHT ========================= */
+  --lh-tight: 1; /* 100% */
+  --lh-snug: 1.1; /* 110% */
+  --lh-base: 1.3; /* 130% */
+  --lh-relaxed: 1.5; /* 150% */
+  --lh-loose: 1.6; /* 160% */
+  --lh-xl: 1.7; /* 170% */
+  --lh-xxl: 1.8; /* 180% */
+
+  /* =========================  LETTER SPACING ========================= */
+  --ls-none: 0rem; /* 0px */
+  --ls-tight: 0.03125rem; /* 0.5px */
+  --ls-base: 0.0625rem; /* 1px */
+  --ls-wide: 0.09375rem; /* 1.5px */
+
+  /* ========================= SEMANTIC COLORS ========================= */
+  /* --color-success: oklch(60% 0.12 150);
+  --color-warning: oklch(75% 0.14 80);
+  --color-error: oklch(65% 0.2 25);
+  --color-info: oklch(70% 0.1 220); */
+
+  /* ========================= SPACING ========================= */
+  --space-xs: clamp(0.375rem, 0.325rem + 0.25vw, 0.625rem); /* 6px  → 10px */
+  --space-sm: clamp(0.4375rem, 0.375rem + 0.3125vw, 0.75rem); /* 7px  → 12px */
+  --space-md: clamp(0.625rem, 0.55rem + 0.375vw, 1rem); /* 10px → 16px */
+  --space-lg: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem); /* 12px → 20px */
+  --space-xl: clamp(0.875rem, 0.75rem + 0.625vw, 1.5rem); /* 14px → 24px */
+  --space-2xl: clamp(1.125rem, 0.95rem + 0.875vw, 2rem); /* 18px → 32px */
+  --space-3xl: clamp(1.5rem, 1.2rem + 1.5vw, 3rem); /* 24px → 48px */
+  --space-4xl: clamp(2rem, 1.6rem + 2vw, 4rem); /* 32px → 64px */
+  --space-5xl: clamp(3rem, 2rem + 5vw, 8rem); /* 48px → 128px */
+
+  /* ========================= BORDER RADIUS ========================= */
+  --radius-sm: 0.0625rem; /* 1px */
+  --radius-md: 0.125rem; /* 2px */
+
+  /* --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px; */
+
+  /* ========================= SHADOWS ========================= */
+  /* --shadow-none: ;
+  --shadow-sm: ;
+  --shadow-md: ;
+  --shadow-lg: ; */
+
+  /* ========================= Z-INDEX LAYERS ========================= */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-fixed: 200;
+  --z-header: 300;
+  --z-modal: 500;
+  --z-tooltip: 600;
+
+  /* ========================= TRANSITIONS ========================= */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transition-fast: var(--duration-fast) var(--ease-out);
+  --transition-base: var(--duration-base) var(--ease-out);
+
+  /* ========================= BREAKPOINTS (MIN-WIDTH) ========================= */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* ========================= LAYOUT ========================= */
+  --max-content-width: 87.5rem;
+  --header-height: /* e.g., 4rem */ ;
+  --footer-height: /* e.g., 6rem */ ;
+}
+
+/* ========================= Global Element Styles Build on reset: Typography, links, etc. (low specificity) ========================= */
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--font-base);
+  line-height: var(--lh-xxl);
+  letter-spacing: var(--ls-none);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-none);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-hero);
+}
+
+/* 
+p {
+    margin-block-end: var(--space-md);
+    font-size: var(--font-sm);
+    line-height: var(--lh-loose);
+  } */
+
+/* Links Base (accessible underlines, hover states) */
+/* a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.125rem;
+    transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+  } */
+
+/* a:hover,
+  a:focus-visible {
+    color: var(--color-accent-hover);
+    text-decoration-thickness: 0.125rem;
+    outline: none; 
+  } */
+
+/* Lists Base (beyond reset's role="list") */
+/* ul, ol {
+    padding-inline-start: var(--space-md);
+    margin-block-end: var(--space-md);
+  } */
+
+/* li {
+    margin-block-end: var(--space-xs);
+  } */
+
+/* Tables Base */
+/* table {
+    width: 100%;
+    margin-block-end: var(--space-md);
+    font-size: var(--font-sm);
+    font-variant-numeric: tabular-nums;
+  } */
+
+/* th,
+  td {
+    padding: var(--space-sm);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  } */
+
+/* Forms Base (beyond reset) */
+/* input,
+  textarea,
+  select {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm);
+    transition: border-color var(--transition-fast);
+  } */
+
+/* input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--color-accent);
+    outline: none;
+  } */
+
+/* Media Base (beyond reset: explicit aspect for CLS prevention) */
+/* img,
+  video,
+  iframe {
+    aspect-ratio: attr(data-aspect-ratio, 16/9); 
+    height: auto;
+  } */
+
+/* Print Styles (global, layer-agnostic but placed here for base) */
+/* @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  } */
+
+/* High Contrast Support */
+/* @media (prefers-contrast: high) {
+    :root {
+      --color-text-primary: oklch(80% 0.05 260);; 
+      --color-border:  oklch(70% 0.03 260); ;
+    }
+
+    a {
+      text-decoration: underline double;
+      text-underline-offset: 0.2rem;
+    }
+  } */
