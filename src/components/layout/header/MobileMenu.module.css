@@ -1,0 +1,244 @@
+/* src/components/Header/MobileMenu.module.css */
+@layer components {
+  /* Mobile Menu Button */
+  .menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: calc(var(--z-header) + 2);
+
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    transition: transform var(--transition-fast);
+  }
+
+  .menuButton:hover {
+    transform: scale(1.05);
+  }
+
+  .menuButton:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    inline-size: 1.5rem;
+    block-size: 1.125rem;
+  }
+
+  .line {
+    display: block;
+    inline-size: 100%;
+    block-size: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+
+  /* Hamburger to X animation */
+  .menuButton.open .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menuButton.open .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menuButton.open .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--z-header) - 1);
+    background: oklch(16.38% 0 0 / 0.8);
+    backdrop-filter: blur(4px);
+    animation: fadeIn var(--duration-base) var(--ease-out);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Mobile Menu Panel */
+  .menu {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    z-index: var(--z-header);
+
+    inline-size: min(85vw, 24rem);
+    block-size: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+
+    padding-block-start: var(--space-5xl);
+    padding-block-end: var(--space-3xl);
+    padding-inline: var(--space-xl);
+
+    background: oklch(16.38% 0 0);
+    border-inline-start: var(--radius-sm) solid var(--color-border);
+
+    transform: translateX(100%);
+    transition: transform var(--duration-base) var(--ease-out);
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .menu.open {
+    transform: translateX(0);
+  }
+
+  /* Menu List */
+  .menuList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .menuItem {
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  .menuLink {
+    display: block;
+    padding-block: var(--space-lg);
+    padding-inline: var(--space-md);
+
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-regular);
+    font-size: var(--font-md);
+    line-height: var(--lh-snug);
+    letter-spacing: 0.09375rem;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .menuLink:hover,
+  .menuLink:focus-visible {
+    color: var(--color-accent-hover);
+    background: var(--color-bg-surface);
+    outline: 2px solid var(--color-outline);
+    outline-offset: -2px;
+  }
+
+  /* Mobile Dropdown */
+  .mobileDropdown {
+    cursor: pointer;
+  }
+
+  .mobileDropdown summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobileDropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .dropdownIcon {
+    inline-size: 0.75rem;
+    block-size: 0.5rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .mobileDropdown[open] .dropdownIcon {
+    transform: rotate(180deg);
+  }
+
+  .submenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-block-start: var(--space-sm);
+    padding-inline-start: var(--space-lg);
+    list-style: none;
+  }
+
+  .submenuLink {
+    display: block;
+    padding-block: var(--space-md);
+    padding-inline: var(--space-md);
+
+    color: var(--color-text-secondary);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-regular);
+    font-size: var(--font-sm);
+    line-height: var(--lh-base);
+    letter-spacing: 0.09375rem;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .submenuLink:hover,
+  .submenuLink:focus-visible {
+    color: var(--color-accent);
+    background: var(--color-bg-surface);
+  }
+
+  /* Mobile CTA */
+  .mobileCta {
+    margin-block-start: auto;
+    padding-block-start: var(--space-xl);
+  }
+
+  .mobileCta > * {
+    inline-size: 100%;
+  }
+
+  /* Hide on desktop */
+  @media (min-width: 768px) {
+    .menuButton,
+    .overlay,
+    .menu {
+      display: none;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .menuButton,
+    .line,
+    .menu,
+    .overlay,
+    .menuLink,
+    .submenuLink,
+    .dropdownIcon {
+      transition: none;
+    }
+
+    .overlay {
+      animation: none;
+    }
+  }
+}

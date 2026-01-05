@@ -1,0 +1,112 @@
+/* src/components/ui/Button.module.css */
+@layer components {
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+
+    font-family: var(--font-heading);
+    font-weight: var(--fw-regular);
+    font-size: 0.8125rem; /* 13px */
+    line-height: var(--lh-loose);
+    letter-spacing: 0.09375rem; /* 1.5px */
+    text-transform: uppercase;
+    text-decoration: none;
+
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+
+    transition: background var(--transition-fast), color var(--transition-fast),
+      transform var(--duration-fast) var(--ease-out),
+      box-shadow var(--transition-fast);
+
+    /* Ensure proper touch targets on mobile */
+    min-block-size: 2.75rem;
+    min-inline-size: 2.75rem;
+  }
+
+  /* Primary variant - "Let's Talk" style */
+  .button.primary {
+    padding-block-start: 0.625rem; /* 10px */
+    padding-block-end: 0.625rem;
+    padding-inline-start: 1rem; /* 16px */
+    padding-inline-end: 1rem;
+
+    background: var(--color-accent);
+    color: var(--color-text-inverted);
+  }
+
+  .button.primary:hover,
+  .button.primary:focus-visible {
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px oklch(83.32% 0.047 76.76 / 0.2);
+  }
+
+  .button.primary:active {
+    transform: translateY(0);
+  }
+
+  /* Secondary variant */
+  .button.secondary {
+    padding-block: 0.625rem;
+    padding-inline: 1rem;
+
+    background: transparent;
+    color: var(--color-accent);
+    border: var(--radius-sm) solid var(--color-border);
+  }
+
+  .button.secondary:hover,
+  .button.secondary:focus-visible {
+    background: var(--color-bg-surface);
+    border-color: var(--color-border-hover);
+  }
+
+  /* Sizes */
+  .button.small {
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-md);
+    font-size: var(--font-xs);
+    min-block-size: 2.25rem;
+  }
+
+  .button.large {
+    padding-block: var(--space-md);
+    padding-inline: var(--space-xl);
+    font-size: var(--font-md);
+    min-block-size: 3.25rem;
+  }
+
+  /* Focus visible state */
+  .button:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 2px;
+  }
+
+  /* Disabled state */
+  .button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .button {
+      transition: none;
+    }
+
+    .button:hover,
+    .button:active {
+      transform: none;
+    }
+  }
+}
