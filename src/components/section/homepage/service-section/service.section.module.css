@@ -1,0 +1,88 @@
+@layer components {
+  .section {
+    padding-block-start: var(--space-5xl);
+    /* background: red; */
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4xl); /* 64px at desktop */
+  }
+
+  /* Tablet: 2 columns */
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3xl);
+    }
+  }
+
+  /* Desktop: 3 columns */
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4xl);
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+    padding: var(--space-3xl);
+    min-block-size: 19.438rem;
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-base),
+      border-color var(--transition-base), transform var(--transition-base);
+  }
+
+  .card:hover {
+    background: oklch(83.32% 0.047 76.76 / 0.08);
+    border-color: oklch(83.32% 0.047 76.76 / 0.25);
+    transform: translateY(-1.5px);
+  }
+
+  /* Content wrapper */
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  /* Header: Number + Title */
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .number {
+    font-family: var(--font-heading);
+    font-size: var(--font-sm);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-loose);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  .title {
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-light);
+    font-size: var(--font-xl);
+    line-height: var(--lh-base);
+    letter-spacing: var(--ls-base);
+    text-transform: uppercase;
+  }
+
+  .description {
+    color: var(--color-text-secondary);
+    font-weight: var(--fw-regular);
+    margin: 0;
+  }
+}
