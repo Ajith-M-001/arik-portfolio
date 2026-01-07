@@ -99,6 +99,7 @@
   /* ========================= BORDER RADIUS ========================= */
   --radius-sm: 0.0625rem; /* 1px */
   --radius-md: 0.125rem; /* 2px */
+  --radius-full: 9999px;
 
   /* --radius-none: 0;
   --radius-sm: 0.125rem;
@@ -178,6 +179,9 @@ h6 {
 
 h1 {
   font-size: var(--font-hero);
+}
+h2 {
+  font-size: var(--font-3xl);
 }
 
 /* 

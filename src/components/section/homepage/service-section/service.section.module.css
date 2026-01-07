@@ -43,7 +43,7 @@
   .card:hover {
     background: oklch(83.32% 0.047 76.76 / 0.08);
     border-color: oklch(83.32% 0.047 76.76 / 0.25);
-    transform: translateY(-1.5px);
+    /* transform: translateY(-1.5px); */
   }
 
   /* Content wrapper */
@@ -84,5 +84,95 @@
     color: var(--color-text-secondary);
     font-weight: var(--fw-regular);
     margin: 0;
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    align-self: flex-start;
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-regular);
+    font-size: var(--font-sm);
+    line-height: var(--lh-loose);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .link:hover,
+  .link:focus-visible {
+    color: var(--color-text-secondary);
+  }
+
+  .link:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .linkIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: 2rem; /* 32px */
+    block-size: 2rem;
+
+    background: var(--color-bg-surface);
+    border: var(--radius-sm) solid var(--color-border);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(30px);
+    transition: background var(--transition-fast),
+      border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .link:hover .linkIcon,
+  .link:focus-visible .linkIcon {
+    background: oklch(83.32% 0.047 76.76 / 0.1);
+    border-color: oklch(83.32% 0.047 76.76 / 0.25);
+    transform: translateX(2px) translateY(-2px);
+  }
+
+  .linkText {
+    transition: transform var(--transition-fast);
+  }
+
+  .link:hover .linkText {
+    transform: translateX(4px);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 767px) {
+    .card {
+      padding: var(--space-xl);
+      min-block-size: auto;
+    }
+
+    .title {
+      font-size: var(--font-lg); /* 20px */
+    }
+
+    .description {
+      font-size: var(--font-sm); /* 13px */
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .card,
+    .link,
+    .linkIcon,
+    .linkText {
+      transition: none;
+    }
+
+    .card:hover,
+    .link:hover .linkIcon,
+    .link:hover .linkText {
+      transform: none;
+    }
   }
 }
