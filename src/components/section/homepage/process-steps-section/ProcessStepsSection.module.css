@@ -1,0 +1,274 @@
+@layer components {
+  .container {
+    inline-size: 100%;
+    margin-inline: auto;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  /* Column containers */
+  .column {
+    display: flex;
+    justify-content: center;
+    inline-size: 100%;
+    max-inline-size: 37.5rem; /* 600px max width */
+  }
+
+  /* Timeline column */
+  .timeline {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Mobile: Stack vertically */
+  @media (max-width: 1023px) {
+    .step {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    /* Show timeline first, then card */
+    .step.even {
+      grid-template-rows: auto auto;
+    }
+
+    .step.even .column:first-child {
+      order: 2;
+    }
+
+    .step.even .timeline {
+      order: 1;
+    }
+
+    .step.even .column:last-child {
+      order: 3;
+      display: none;
+    }
+
+    /* For odd steps */
+    .step.odd .column:first-child {
+      display: none;
+    }
+
+    .step.odd .timeline {
+      order: 1;
+    }
+
+    .step.odd .column:last-child {
+      order: 2;
+    }
+
+    .column {
+      min-block-size: auto;
+    }
+  }
+
+  /* Timeline Container */
+  .stepTimeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* Vertical Line */
+  .line {
+    inline-size: 1px;
+    block-size: 11.344rem; /* 181.5px */
+    background: var(--color-border);
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: 2.5rem; /* 40px */
+    block-size: 2.5rem;
+
+    padding-block: 0.5rem; /* 8px */
+    padding-inline: 0.75rem; /* 12px */
+
+    background: oklch(83.32% 0.047 76.76 / 0.05);
+    border: var(--radius-sm) solid oklch(83.32% 0.047 76.76 / 0.15);
+    border-radius: 500px;
+    backdrop-filter: blur(30px);
+
+    transition: background var(--transition-base),
+      border-color var(--transition-base), transform var(--transition-base);
+  }
+
+  /* Number Text */
+  .number {
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-regular);
+    font-size: 0.8125rem; /* 13px */
+    line-height: var(--lh-loose);
+    letter-spacing: 0.09375rem; /* 1.5px */
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* Hover Effect (when card is hovered) */
+  .timeline:hover .badge {
+    background: oklch(83.32% 0.047 76.76 / 0.1);
+    border-color: oklch(83.32% 0.047 76.76 / 0.25);
+    transform: scale(1.1);
+  }
+
+  /* Mobile: Shorter lines */
+  @media (max-width: 1023px) {
+    .line {
+      block-size: 3rem; /* 48px on mobile */
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .badge {
+      transition: none;
+    }
+
+    .timeline:hover .badge {
+      transform: none;
+    }
+  }
+
+  .card {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl); /* 32px */
+    inline-size: 100%;
+    max-inline-size: 37.5rem; /* 600px */
+    padding: var(--space-3xl);
+    background: oklch(83.32% 0.047 76.76 / 0.05);
+    border: var(--radius-sm) solid oklch(83.32% 0.047 76.76 / 0.15);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(30px);
+
+    transition: background var(--transition-base),
+      border-color var(--transition-base), transform var(--transition-base);
+  }
+
+  .card:hover {
+    background: oklch(83.32% 0.047 76.76 / 0.08);
+    border-color: oklch(83.32% 0.047 76.76 / 0.25);
+    /* transform: translateY(-4px); */
+  }
+
+  /* Header Section */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-lg);
+  }
+  .headerContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    flex: 1;
+  }
+
+  /* Eyebrow Text */
+  .eyebrow {
+    color: var(--color-text-secondary);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-regular);
+    font-size: 0.8125rem; /* 13px */
+    line-height: var(--lh-loose);
+    letter-spacing: 0.09375rem; /* 1.5px */
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* Title */
+  .title {
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-light);
+    font-size: var(--font-xl); /* 24px */
+    line-height: var(--lh-base); /* 130% */
+    letter-spacing: 0.0625rem; /* 1px */
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* Duration Label */
+  .duration {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    min-inline-size: 4.25rem; /* 68px */
+    block-size: 1.875rem; /* 30px */
+
+    padding: 0.5rem; /* 8px */
+
+    background: oklch(83.32% 0.047 76.76 / 0.05);
+    border: var(--radius-sm) solid oklch(83.32% 0.047 76.76 / 0.15);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(30px);
+  }
+
+  .durationText {
+    color: var(--color-accent);
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: 0.75rem; /* 12px */
+    line-height: 1.2; /* 120% */
+    letter-spacing: var(--ls-none);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Description */
+  .description {
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: var(--font-base); /* 16px */
+    line-height: var(--lh-xxl); /* 180% */
+    letter-spacing: var(--ls-none);
+    margin: 0;
+  }
+
+  /* Features List */
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* 16px between items */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .feature {
+    position: relative;
+    padding-inline-start: 1.5rem;
+
+    color: var(--color-accent);
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: var(--font-base);
+    line-height: var(--lh-xxl);
+    letter-spacing: var(--ls-none);
+  }
+
+  /* Custom bullet point */
+  .feature::before {
+    content: "•";
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--color-accent);
+    font-weight: var(--fw-regular);
+  }
+}
