@@ -5,6 +5,7 @@ import LogoSection from "@/components/section/homepage/logo-section/LogoSection"
 import ProcessSection from "@/components/section/homepage/process-section/ProcessSection";
 import ProcessStepsSection from "@/components/section/homepage/process-steps-section/ProcessStepsSection";
 import ServiceSection from "@/components/section/homepage/service-section/ServiceSection";
+import TestimonialsSection from "@/components/section/homepage/testimonials-section/TestimonialsSection";
 import WorkSection from "@/components/section/homepage/work-section/WorkSection";
 import React from "react";
 
@@ -17,6 +18,7 @@ const Homepage = () => {
       <WorkSection />
       <ProcessSection />
       <ProcessStepsSection />
+      <TestimonialsSection />
     </>
   );
 };

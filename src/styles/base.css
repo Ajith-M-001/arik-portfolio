@@ -23,7 +23,7 @@
   --font-3xl: clamp(2rem, 0.25rem + 1.25vw, 4rem); /* 64px */
   --font-4xl: clamp(
     2.5rem,
-    0.5rem + 2.5vw,
+    1.5rem + 4vw,
     6rem
   ); /* 96px (adjusted for better mobile) */
   --font-5xl: clamp(3rem, 0.75rem + 3.75vw, 8rem); /* 128px */
