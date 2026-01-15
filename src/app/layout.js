@@ -2,6 +2,7 @@ import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/constants";
 import { chillax, satoshi } from "./fonts";
 import "./globals.css";
 import Header from "@/components/layout/header/Header";
+import Footer from "@/components/layout/footer/Footer";
 
 export const metadata = {
   title: SITE_TITLE,
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         {/* Footer */}
+        <Footer />
       </body>
     </html>
   );

@@ -1,0 +1,104 @@
+/* src/components/AboutSection/SocialLinks.module.css */
+
+@layer components {
+  .social {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Social List - Exact width 214px, gap 10px */
+  .list {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* 10px between icons */
+
+    inline-size: 13.375rem; /* 214px total */
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Social Link Button - Exact specs */
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: 2.875rem; /* 46px */
+    block-size: 2.875rem; /* 46px */
+
+    padding-block: 0.5rem; /* 8px */
+    padding-inline: 0.75rem; /* 12px */
+
+    background: oklch(83.32% 0.047 76.76 / 0.05);
+    border: var(--radius-sm) solid oklch(83.32% 0.047 76.76 / 0.15);
+    border-radius: 500px;
+    backdrop-filter: blur(30px);
+
+    color: var(--color-accent);
+    text-decoration: none;
+
+    transition: background var(--transition-fast),
+      border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .link:hover,
+  .link:focus-visible {
+    background: oklch(83.32% 0.047 76.76 / 0.1);
+    border-color: oklch(83.32% 0.047 76.76 / 0.25);
+    transform: translateY(-2px);
+  }
+
+  .link:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 4px;
+  }
+
+  .link:active {
+    transform: translateY(0);
+  }
+
+  /* Icon - Exact 20x20px */
+  .icon {
+    inline-size: 1.25rem; /* 20px */
+    block-size: 1.25rem; /* 20px */
+    filter: brightness(0) invert(1) opacity(0.9);
+    transition: filter var(--transition-fast);
+  }
+
+  .link:hover .icon,
+  .link:focus-visible .icon {
+    filter: brightness(0) invert(1) opacity(1);
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .list {
+      gap: 0.5rem; /* 8px on mobile */
+      inline-size: auto;
+    }
+
+    .link {
+      inline-size: 2.5rem; /* 40px */
+      block-size: 2.5rem;
+    }
+
+    .icon {
+      inline-size: 1rem; /* 16px */
+      block-size: 1rem;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .link {
+      transition: none;
+    }
+
+    .link:hover,
+    .link:active {
+      transform: none;
+    }
+  }
+}

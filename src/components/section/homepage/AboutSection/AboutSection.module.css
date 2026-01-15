@@ -1,0 +1,197 @@
+/* src/components/AboutSection/AboutSection.module.css */
+
+@layer components {
+  /* Section - Full viewport width, fixed height */
+  .section {
+    position: relative;
+    inline-size: 100%;
+    max-inline-size: 120rem; /* 1920px */
+    block-size: auto;
+    min-block-size: 76.75rem; /* 1228px */
+    margin-inline: auto;
+
+    background: var(--color-bg-primary);
+    overflow: hidden;
+  }
+
+  /* Portrait Image - Absolutely Positioned */
+  .portraitWrapper {
+    position: absolute;
+    inset-block-start: 1.813rem; /* 29px from top */
+    inset-inline-start: 30.875rem; /* 494px from left */
+
+    inline-size: 55rem; /* 880px */
+    block-size: 48.063rem; /* 769px */
+
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .portrait {
+    object-fit: cover;
+    object-position: center;
+    mix-blend-mode: lighten;
+  }
+
+  /* Content Container - Absolutely Positioned */
+  .container {
+    position: absolute;
+    inset-block-start: 48.313rem; /* 773px from top */
+    inset-inline-start: 22.5rem; /* 360px from left */
+
+    inline-size: 75rem; /* 1200px */
+    z-index: 2;
+  }
+
+  /* Main Grid - Two Columns */
+  .grid {
+    display: flex;
+    gap: var(--space-4xl); /* 64px */
+    align-items: flex-start;
+  }
+
+  /* Left Column - Heading */
+  .headingWrapper {
+    flex: 1;
+  }
+
+  .heading {
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-light);
+    font-size: var(--font-2xl); /* 48px */
+    line-height: var(--lh-snug); /* 110% */
+    letter-spacing: var(--ls-none);
+    margin: 0;
+  }
+
+  .headingItalic {
+    font-style: italic;
+  }
+
+  /* Right Column - Bio & Social */
+  .bioWrapper {
+    inline-size: 35.5rem; /* 568px */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl); /* 32px */
+  }
+
+  /* Bio Text */
+  .bio {
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: var(--font-md); /* 18px */
+    line-height: var(--lh-loose); /* 160% */
+    letter-spacing: var(--ls-none);
+    margin: 0;
+  }
+
+  /* Responsive Adjustments */
+
+  /* Large Desktop (< 1920px) */
+  @media (max-width: 1919px) {
+    .portraitWrapper {
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+    }
+
+    .container {
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Desktop (< 1280px) */
+  @media (max-width: 1279px) {
+    .section {
+      min-block-size: 60rem;
+    }
+
+    .portraitWrapper {
+      inline-size: 45rem;
+      block-size: 39rem;
+      inset-block-start: 2rem;
+    }
+
+    .container {
+      inset-block-start: 42rem;
+      inline-size: 90%;
+      max-inline-size: 70rem;
+      padding-inline: var(--space-xl);
+    }
+
+    .grid {
+      flex-direction: column;
+      gap: var(--space-3xl);
+    }
+
+    .bioWrapper {
+      inline-size: 100%;
+      max-inline-size: 40rem;
+    }
+  }
+
+  /* Tablet (< 1024px) */
+  @media (max-width: 1023px) {
+    .section {
+      min-block-size: 50rem;
+    }
+
+    .portraitWrapper {
+      inline-size: 38rem;
+      block-size: 33rem;
+    }
+
+    .container {
+      inset-block-start: 36rem;
+    }
+
+    .heading {
+      font-size: var(--font-xl);
+    }
+
+    .bio {
+      font-size: var(--font-base);
+    }
+  }
+
+  /* Mobile (< 768px) */
+  @media (max-width: 767px) {
+    .section {
+      min-block-size: 45rem;
+    }
+
+    .portraitWrapper {
+      inline-size: 90vw;
+      max-inline-size: 28rem;
+      block-size: 25rem;
+      inset-block-start: 3rem;
+    }
+
+    .container {
+      position: relative;
+      inset-block-start: auto;
+      inset-inline-start: auto;
+      transform: none;
+
+      inline-size: 100%;
+      padding-inline: var(--space-md);
+      padding-block-start: 30rem;
+      padding-block-end: var(--space-4xl);
+    }
+
+    .grid {
+      gap: var(--space-2xl);
+    }
+
+    .heading {
+      font-size: var(--font-lg);
+    }
+
+    .bioWrapper {
+      inline-size: 100%;
+    }
+  }
+}
